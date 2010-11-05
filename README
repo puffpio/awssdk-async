@@ -1,4 +1,16 @@
 This is a fork of the official Amazon Web Service Software Development Kit (AWSSDK) for .Net
+
+Maintained by David Pio (david@puffpio.com)
+
 There are two major objectives:
 1) Update the library to .Net 4
 2) Provide nonblocking asynchronous versions of the API methods
+
+To build this library, it requires .Net 4 and the Visual Studio Async CTP: http://msdn.microsoft.com/en-us/vstudio/async.aspx
+However, when deploying the binary, the Async CTP shouldn't be required to be installed, just need to include the AsyncCtpLibrary dll
+
+TODO:
+LOTS
+
+Already async'd:
+SimpleDB API
