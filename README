@@ -1,0 +1,4 @@
+This is a fork of the official Amazon Web Service Software Development Kit (AWSSDK) for .Net
+There are two major objectives:
+1) Update the library to .Net 4
+2) Provide nonblocking asynchronous versions of the API methods
