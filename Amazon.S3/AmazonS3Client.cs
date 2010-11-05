@@ -20,6 +20,10 @@
  *  Author(s): Manoj Mehta, Nathan Schnarr
  */
 
+/*
+    I made changes to this file! - David Pio 
+ */
+
 #if TRACE
 using System.Diagnostics;
 #endif
@@ -3034,7 +3038,7 @@ namespace Amazon.S3
         /// </summary>
         /// <param name="headers">The header collection to add the new header to</param>
         /// <param name="mfaCodes">The tuple of the authentication device codes</param>
-        private static void SetMfaHeader(WebHeaderCollection headers, Tuple<string, string> mfaCodes)
+        private static void SetMfaHeader(WebHeaderCollection headers, Amazon.S3.Model.Tuple<string, string> mfaCodes)
         {
             headers[S3Constants.AmzMfaHeader] = String.Concat(mfaCodes.First, " ", mfaCodes.Second);
         }
