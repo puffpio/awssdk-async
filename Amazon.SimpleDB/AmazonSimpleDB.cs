@@ -20,8 +20,7 @@
  */
 
 using System;
-using System.Xml.Serialization;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using Amazon.SimpleDB.Model;
 
 namespace Amazon.SimpleDB
@@ -59,6 +58,7 @@ namespace Amazon.SimpleDB
         /// operation may take 10 or more seconds to complete.
         /// </remarks>
         CreateDomainResponse CreateDomain(CreateDomainRequest request);
+        Task<CreateDomainResponse> CreateDomainAsync(CreateDomainRequest request);
 
         /// <summary>
         /// List Domains
@@ -72,6 +72,7 @@ namespace Amazon.SimpleDB
         /// NextToken returns up to MaxNumberOfDomains more domain names each time.
         /// </remarks>
         ListDomainsResponse ListDomains(ListDomainsRequest request);
+        Task<ListDomainsResponse> ListDomainsAsync(ListDomainsRequest request);
 
         /// <summary>
         /// Domain Metadata
@@ -83,6 +84,7 @@ namespace Amazon.SimpleDB
         /// number of items, attribute names and attribute values along with their sizes.
         /// </remarks>
         DomainMetadataResponse DomainMetadata(DomainMetadataRequest request);
+        Task<DomainMetadataResponse> DomainMetadataAsync(DomainMetadataRequest request);
 
         /// <summary>
         /// Delete Domain
@@ -94,6 +96,7 @@ namespace Amazon.SimpleDB
         /// are deleted as well. The DeleteDomain operation may take 10 or more seconds to complete.
         /// </remarks>
         DeleteDomainResponse DeleteDomain(DeleteDomainRequest request);
+        Task<DeleteDomainResponse> DeleteDomainAsync(DeleteDomainRequest request);
 
         /// <summary>
         /// Put Attributes
@@ -117,6 +120,7 @@ namespace Amazon.SimpleDB
         /// with the new value.
         /// </remarks>
         PutAttributesResponse PutAttributes(PutAttributesRequest request);
+        Task<PutAttributesResponse> PutAttributesAsync(PutAttributesRequest request);
 
         /// <summary>
         /// Batch Put Attributes
@@ -141,6 +145,7 @@ namespace Amazon.SimpleDB
         /// with the new value.
         /// </remarks>
         BatchPutAttributesResponse BatchPutAttributes(BatchPutAttributesRequest request);
+        Task<BatchPutAttributesResponse> BatchPutAttributesAsync(BatchPutAttributesRequest request);
 
         /// <summary>
         /// Get Attributes
@@ -155,6 +160,7 @@ namespace Amazon.SimpleDB
         /// replicas.
         /// </remarks>
         GetAttributesResponse GetAttributes(GetAttributesRequest request);
+        Task<GetAttributesResponse> GetAttributesAsync(GetAttributesRequest request);
 
         /// <summary>
         /// Delete Attributes
@@ -166,6 +172,7 @@ namespace Amazon.SimpleDB
         /// deleted.
         /// </remarks>
         DeleteAttributesResponse DeleteAttributes(DeleteAttributesRequest request);
+        Task<DeleteAttributesResponse> DeleteAttributesAsync(DeleteAttributesRequest request);
 
         /// <summary>
         /// Select
@@ -178,6 +185,7 @@ namespace Amazon.SimpleDB
         /// and return a time-out error response.
         /// </remarks>
         SelectResponse Select(SelectRequest request);
+        Task<SelectResponse> SelectAsync(SelectRequest request);
 
     }
 }

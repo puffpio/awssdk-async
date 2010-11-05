@@ -19,6 +19,10 @@
  *  API Version: 2009-04-15
  */
 
+/*
+    I made changes to this file! - David Pio 
+ */
+
 #if TRACE
 using System.Diagnostics;
 #endif
@@ -72,7 +76,7 @@ namespace Amazon.SimpleDB
     /// to scale instantly, and pay only for what they use.
     /// </remarks>
     /// <seealso cref="P:Amazon.SimpleDB.AmazonSimpleDBConfig.UseSecureStringForAwsSecretKey"/>
-    public class AmazonSimpleDBClient : AmazonSimpleDB
+    public partial class AmazonSimpleDBClient : AmazonSimpleDB
     {
         private string awsAccessKeyId;
         private SecureString awsSecretAccessKey;

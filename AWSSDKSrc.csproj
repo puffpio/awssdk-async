@@ -74,6 +74,9 @@
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AsyncCtpLibrary">
+      <HintPath>ThirdParty\AsyncCtpLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>ThirdParty\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -1376,6 +1379,7 @@
     <Compile Include="Amazon.S3\Model\SetACLResponse.cs" />
     <Compile Include="Amazon.SimpleDB\AmazonSimpleDB.cs" />
     <Compile Include="Amazon.SimpleDB\AmazonSimpleDBClient.cs" />
+    <Compile Include="Amazon.SimpleDB\AmazonSimpleDBClientAsync.cs" />
     <Compile Include="Amazon.SimpleDB\AmazonSimpleDBConfig.cs" />
     <Compile Include="Amazon.SimpleDB\AmazonSimpleDBException.cs" />
     <Compile Include="Amazon.SimpleDB\Model\Attribute.cs" />
