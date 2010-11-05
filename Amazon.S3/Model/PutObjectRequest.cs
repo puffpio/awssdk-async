@@ -20,6 +20,10 @@
  *
  */
 
+/*
+    I made changes to this file! - David Pio 
+ */
+
 using System;
 using System.Xml.Serialization;
 using System.Collections.Specialized;
@@ -640,7 +644,7 @@ namespace Amazon.S3.Model
         /// Use this property if you want to upload plaintext to
         /// S3. The ContentBody is the data for your S3 Object.
         /// </summary>
-        /// <param name="contentBody">the value the ContentBody to be set to</param>
+        /// <param name="autoCloseStream"></param>
         /// <returns>The request with the ContentBody set</returns>
         public PutObjectRequest WithAutoCloseStream(bool autoCloseStream)
         {

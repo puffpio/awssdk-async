@@ -12,6 +12,12 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
+/*
+    I made changes to this file! - David Pio 
+ */
+
+
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
@@ -156,10 +162,7 @@ namespace Amazon.ElasticLoadBalancing.Model
 
         /// <summary>
         /// The ID of the SSL certificate chain to use. For more information on
-        /// SSL certificates, see <a
-        /// ervices.com/IAM/latest/UserGuide/index.html?ManagingCredentials.html">
-        /// Managing Keys and Certificates </a> in the AWS Identity and Access
-        /// Management documentation.
+        /// SSL certificates, see
         ///  
         /// </summary>
         public string SSLCertificateId
