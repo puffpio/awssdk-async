@@ -56,5 +56,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.1.0.1")]
 [assembly: AssemblyFileVersion("1.1.0.1")]
 
-[assembly: System.CLSCompliant(true)]
-[assembly: System.Security.AllowPartiallyTrustedCallers]
+//[assembly: System.CLSCompliant(true)]
+//[assembly: System.Security.AllowPartiallyTrustedCallers]
