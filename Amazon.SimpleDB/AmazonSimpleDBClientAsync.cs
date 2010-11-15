@@ -40,6 +40,8 @@ namespace Amazon.SimpleDB
 {
     public partial class AmazonSimpleDBClient : AmazonSimpleDB
     {
+        #region Public Async API
+
         /// <summary>
         /// Create Domain async
         /// </summary>
@@ -183,6 +185,10 @@ namespace Amazon.SimpleDB
             return await InvokeAsync<DeleteAttributesResponse>(ConvertDeleteAttributes(request));
         }
 
+        #endregion
+
+        #region Private Async API
+
         /// <summary>
         /// Select async
         /// </summary>
@@ -317,8 +323,8 @@ namespace Amazon.SimpleDB
                         statusCode = httpErrorResponse.StatusCode;
                         using (StreamReader reader = new StreamReader(httpErrorResponse.GetResponseStream(), Encoding.UTF8))
                         {
-                            // cannot use async version in a catch block
-                            responseBody = reader.ReadToEnd();
+                            // cannot use await in a catch block
+                            responseBody = reader.ReadToEndAsync().Result;
                         }
 
                         // Abort the unsuccessful request
@@ -329,7 +335,7 @@ namespace Amazon.SimpleDB
                         statusCode == HttpStatusCode.ServiceUnavailable)
                     {
                         shouldRetry = true;
-                        PauseOnRetry(++retries, maxRetries, statusCode);
+                        PauseOnRetryAsync(++retries, maxRetries, statusCode).Wait();
                     }
                     else
                     {
@@ -349,5 +355,25 @@ namespace Amazon.SimpleDB
             return response;
         }
 
+        /**
+         * Exponential sleep on failed request
+         */
+        private static async Task PauseOnRetryAsync(int retries, int maxRetries, HttpStatusCode status)
+        {
+            if (retries <= maxRetries)
+            {
+                int delay = (int)Math.Pow(4, retries) * 100;
+                await TaskEx.Delay(delay);
+            }
+            else
+            {
+                throw new AmazonSimpleDBException(
+                    "Maximum number of retry attempts reached : " + (retries - 1),
+                    status
+                    );
+            }
+        }
+
+        #endregion
     }
 }

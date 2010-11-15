@@ -19,6 +19,10 @@
  *  API Version: 2009-02-01
  */
 
+/*
+    I made changes to this file! - David Pio 
+ */
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -55,7 +59,7 @@ namespace Amazon.SQS
     /// not need to be on the same network, developed with the same technologies, or running at the same time.
     /// </remarks>
     /// <seealso cref="P:Amazon.SQS.AmazonSQSConfig.UseSecureStringForAwsSecretKey"/>
-    public class AmazonSQSClient : AmazonSQS
+    public partial class AmazonSQSClient : AmazonSQS
     {
         private string awsAccessKeyId;
         private SecureString awsSecretAccessKey;

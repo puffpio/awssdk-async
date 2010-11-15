@@ -1488,6 +1488,7 @@
     <Compile Include="Amazon.SimpleNotificationService\Model\UnsubscribeResponse.cs" />
     <Compile Include="Amazon.SQS\AmazonSQS.cs" />
     <Compile Include="Amazon.SQS\AmazonSQSClient.cs" />
+    <Compile Include="Amazon.SQS\AmazonSQSClientAsync.cs" />
     <Compile Include="Amazon.SQS\AmazonSQSConfig.cs" />
     <Compile Include="Amazon.SQS\AmazonSQSException.cs" />
     <Compile Include="Amazon.SQS\Model\AddPermissionRequest.cs" />
