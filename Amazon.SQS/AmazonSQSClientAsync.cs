@@ -60,9 +60,9 @@ namespace Amazon.SQS
         /// returned. Exception: if you provide a value for DefaultVisibilityTimeout that is different
         /// from the value for the existing queue, you receive an error.
         /// </remarks>
-        public async Task<CreateQueueResponse> CreateQueueAsync(CreateQueueRequest request)
+        public Task<CreateQueueResponse> CreateQueueAsync(CreateQueueRequest request)
         {
-            return await InvokeAsync<CreateQueueResponse>(ConvertCreateQueue(request));
+            return InvokeAsync<CreateQueueResponse>(ConvertCreateQueue(request));
         }
 
         /// <summary>
@@ -73,9 +73,9 @@ namespace Amazon.SQS
         /// <remarks>
         /// The ListQueues action returns a list of your queues.
         /// </remarks>
-        public async Task<ListQueuesResponse> ListQueuesAsync(ListQueuesRequest request)
+        public Task<ListQueuesResponse> ListQueuesAsync(ListQueuesRequest request)
         {
-            return await InvokeAsync<ListQueuesResponse>(ConvertListQueues(request));
+            return InvokeAsync<ListQueuesResponse>(ConvertListQueues(request));
         }
 
         /// <summary>
@@ -86,9 +86,9 @@ namespace Amazon.SQS
         /// <remarks>
         /// Adds the specified permission(s) to a queue for the specified principal(s). This allows for sharing access to the queue.
         /// </remarks>
-        public async Task<AddPermissionResponse> AddPermissionAsync(AddPermissionRequest request)
+        public Task<AddPermissionResponse> AddPermissionAsync(AddPermissionRequest request)
         {
-            return await InvokeAsync<AddPermissionResponse>(ConvertAddPermission(request));
+            return InvokeAsync<AddPermissionResponse>(ConvertAddPermission(request));
         }
 
         /// <summary>
@@ -99,9 +99,9 @@ namespace Amazon.SQS
         /// <remarks>
         /// The ChangeMessageVisibility action extends the read lock timeout of the specified message from the specified queue to the specified value.
         /// </remarks>
-        public async Task<ChangeMessageVisibilityResponse> ChangeMessageVisibilityAsync(ChangeMessageVisibilityRequest request)
+        public Task<ChangeMessageVisibilityResponse> ChangeMessageVisibilityAsync(ChangeMessageVisibilityRequest request)
         {
-            return await InvokeAsync<ChangeMessageVisibilityResponse>(ConvertChangeMessageVisibility(request));
+            return InvokeAsync<ChangeMessageVisibilityResponse>(ConvertChangeMessageVisibility(request));
         }
 
         /// <summary>
@@ -112,9 +112,9 @@ namespace Amazon.SQS
         /// <remarks>
         /// The DeleteMessage action unconditionally removes the specified message from the specified queue. Even if the message is locked by another reader due to the visibility timeout setting, it is still deleted from the queue.
         /// </remarks>
-        public async Task<DeleteMessageResponse> DeleteMessageAsync(DeleteMessageRequest request)
+        public Task<DeleteMessageResponse> DeleteMessageAsync(DeleteMessageRequest request)
         {
-            return await InvokeAsync<DeleteMessageResponse>(ConvertDeleteMessage(request));
+            return InvokeAsync<DeleteMessageResponse>(ConvertDeleteMessage(request));
         }
 
         /// <summary>
@@ -125,9 +125,9 @@ namespace Amazon.SQS
         /// <remarks>
         /// This action unconditionally deletes the queue specified by the queue URL. Use this operation WITH CARE!  The queue is deleted even if it is NOT empty.
         /// </remarks>
-        public async Task<DeleteQueueResponse> DeleteQueueAsync(DeleteQueueRequest request)
+        public Task<DeleteQueueResponse> DeleteQueueAsync(DeleteQueueRequest request)
         {
-            return await InvokeAsync<DeleteQueueResponse>(ConvertDeleteQueue(request));
+            return InvokeAsync<DeleteQueueResponse>(ConvertDeleteQueue(request));
         }
 
         /// <summary>
@@ -138,9 +138,9 @@ namespace Amazon.SQS
         /// <remarks>
         /// Gets one or all attributes of a queue. Queues currently have two attributes you can get: ApproximateNumberOfMessages and VisibilityTimeout.
         /// </remarks>
-        public async Task<GetQueueAttributesResponse> GetQueueAttributesAsync(GetQueueAttributesRequest request)
+        public Task<GetQueueAttributesResponse> GetQueueAttributesAsync(GetQueueAttributesRequest request)
         {
-            return await InvokeAsync<GetQueueAttributesResponse>(ConvertGetQueueAttributes(request));
+            return InvokeAsync<GetQueueAttributesResponse>(ConvertGetQueueAttributes(request));
         }
 
         /// <summary>
@@ -151,9 +151,9 @@ namespace Amazon.SQS
         /// <remarks>
         /// Removes the permission with the specified statement id from the queue.
         /// </remarks>
-        public async Task<RemovePermissionResponse> RemovePermissionAsync(RemovePermissionRequest request)
+        public Task<RemovePermissionResponse> RemovePermissionAsync(RemovePermissionRequest request)
         {
-            return await InvokeAsync<RemovePermissionResponse>(ConvertRemovePermission(request));
+            return InvokeAsync<RemovePermissionResponse>(ConvertRemovePermission(request));
         }
 
         /// <summary>
@@ -169,9 +169,9 @@ namespace Amazon.SQS
         /// on subsequent ReceiveMessage requests for the duration of the VisibilityTimeout. If you do not specify a
         /// VisibilityTimeout in the request, the overall visibility timeout for the queue is used for the returned messages.
         /// </remarks>
-        public async Task<ReceiveMessageResponse> ReceiveMessageAsync(ReceiveMessageRequest request)
+        public Task<ReceiveMessageResponse> ReceiveMessageAsync(ReceiveMessageRequest request)
         {
-            return await InvokeAsync<ReceiveMessageResponse>(ConvertReceiveMessage(request));
+            return InvokeAsync<ReceiveMessageResponse>(ConvertReceiveMessage(request));
         }
 
         /// <summary>
@@ -182,9 +182,9 @@ namespace Amazon.SQS
         /// <remarks>
         /// The SendMessage action delivers a message to the specified queue.
         /// </remarks>
-        public async Task<SendMessageResponse> SendMessageAsync(SendMessageRequest request)
+        public Task<SendMessageResponse> SendMessageAsync(SendMessageRequest request)
         {
-            return await InvokeAsync<SendMessageResponse>(ConvertSendMessage(request));
+            return InvokeAsync<SendMessageResponse>(ConvertSendMessage(request));
         }
 
         /// <summary>
@@ -195,9 +195,9 @@ namespace Amazon.SQS
         /// <remarks>
         /// Sets an attribute of a queue. Currently, you can set only the VisibilityTimeout attribute for a queue.
         /// </remarks>
-        public async Task<SetQueueAttributesResponse> SetQueueAttributesAsync(SetQueueAttributesRequest request)
+        public Task<SetQueueAttributesResponse> SetQueueAttributesAsync(SetQueueAttributesRequest request)
         {
-            return await InvokeAsync<SetQueueAttributesResponse>(ConvertSetQueueAttributes(request));
+            return InvokeAsync<SetQueueAttributesResponse>(ConvertSetQueueAttributes(request));
         }
 
         #endregion

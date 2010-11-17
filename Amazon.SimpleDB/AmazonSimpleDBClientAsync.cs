@@ -52,9 +52,9 @@ namespace Amazon.SimpleDB
         /// among the domains associated with the Access Key ID provided in the request. The CreateDomain
         /// operation may take 10 or more seconds to complete.
         /// </remarks>
-        public async Task<CreateDomainResponse> CreateDomainAsync(CreateDomainRequest request)
+        public Task<CreateDomainResponse> CreateDomainAsync(CreateDomainRequest request)
         {
-            return await InvokeAsync<CreateDomainResponse>(ConvertCreateDomain(request));
+            return InvokeAsync<CreateDomainResponse>(ConvertCreateDomain(request));
         }
 
         /// <summary>
@@ -68,9 +68,9 @@ namespace Amazon.SimpleDB
         /// than MaxNumberOfDomains domains. Calling ListDomains successive times with the
         /// NextToken returns up to MaxNumberOfDomains more domain names each time.
         /// </remarks>
-        public async Task<ListDomainsResponse> ListDomainsAsync(ListDomainsRequest request)
+        public Task<ListDomainsResponse> ListDomainsAsync(ListDomainsRequest request)
         {
-            return await InvokeAsync<ListDomainsResponse>(ConvertListDomains(request));
+            return InvokeAsync<ListDomainsResponse>(ConvertListDomains(request));
         }
 
         /// <summary>
@@ -82,9 +82,9 @@ namespace Amazon.SimpleDB
         /// The DomainMetadata operation returns some domain metadata values, such as the
         /// number of items, attribute names and attribute values along with their sizes.
         /// </remarks>
-        public async Task<DomainMetadataResponse> DomainMetadataAsync(DomainMetadataRequest request)
+        public Task<DomainMetadataResponse> DomainMetadataAsync(DomainMetadataRequest request)
         {
-            return await InvokeAsync<DomainMetadataResponse>(ConvertDomainMetadata(request));
+            return InvokeAsync<DomainMetadataResponse>(ConvertDomainMetadata(request));
         }
 
         /// <summary>
@@ -96,9 +96,9 @@ namespace Amazon.SimpleDB
         /// The DeleteDomain operation deletes a domain. Any items (and their attributes) in the domain
         /// are deleted as well. The DeleteDomain operation may take 10 or more seconds to complete.
         /// </remarks>
-        public async Task<DeleteDomainResponse> DeleteDomainAsync(DeleteDomainRequest request)
+        public Task<DeleteDomainResponse> DeleteDomainAsync(DeleteDomainRequest request)
         {
-            return await InvokeAsync<DeleteDomainResponse>(ConvertDeleteDomain(request));
+            return InvokeAsync<DeleteDomainResponse>(ConvertDeleteDomain(request));
         }
 
         /// <summary>
@@ -122,9 +122,9 @@ namespace Amazon.SimpleDB
         /// item will be { 'a', '1' } and { 'b', '4' }, replacing the previous values of the 'b' attribute
         /// with the new value.
         /// </remarks>
-        public async Task<PutAttributesResponse> PutAttributesAsync(PutAttributesRequest request)
+        public Task<PutAttributesResponse> PutAttributesAsync(PutAttributesRequest request)
         {
-            return await InvokeAsync<PutAttributesResponse>(ConvertPutAttributes(request));
+            return InvokeAsync<PutAttributesResponse>(ConvertPutAttributes(request));
         }
 
         /// <summary>
@@ -149,9 +149,9 @@ namespace Amazon.SimpleDB
         /// item will be { 'a', '1' } and { 'b', '4' }, replacing the previous values of the 'b' attribute
         /// with the new value.
         /// </remarks>
-        public async Task<BatchPutAttributesResponse> BatchPutAttributesAsync(BatchPutAttributesRequest request)
+        public Task<BatchPutAttributesResponse> BatchPutAttributesAsync(BatchPutAttributesRequest request)
         {
-            return await InvokeAsync<BatchPutAttributesResponse>(ConvertBatchPutAttributes(request));
+            return InvokeAsync<BatchPutAttributesResponse>(ConvertBatchPutAttributes(request));
         }
 
         /// <summary>
@@ -166,9 +166,9 @@ namespace Amazon.SimpleDB
         /// returned. The system does not return an error as it cannot guarantee the item does not exist on other
         /// replicas.
         /// </remarks>
-        public async Task<GetAttributesResponse> GetAttributesAsync(GetAttributesRequest request)
+        public Task<GetAttributesResponse> GetAttributesAsync(GetAttributesRequest request)
         {
-            return await InvokeAsync<GetAttributesResponse>(ConvertGetAttributes(request));
+            return InvokeAsync<GetAttributesResponse>(ConvertGetAttributes(request));
         }
 
         /// <summary>
@@ -180,9 +180,9 @@ namespace Amazon.SimpleDB
         /// Deletes one or more attributes associated with the item. If all attributes of an item are deleted, the item is
         /// deleted.
         /// </remarks>
-        public async Task<DeleteAttributesResponse> DeleteAttributesAsync(DeleteAttributesRequest request)
+        public Task<DeleteAttributesResponse> DeleteAttributesAsync(DeleteAttributesRequest request)
         {
-            return await InvokeAsync<DeleteAttributesResponse>(ConvertDeleteAttributes(request));
+            return InvokeAsync<DeleteAttributesResponse>(ConvertDeleteAttributes(request));
         }
 
         #endregion
