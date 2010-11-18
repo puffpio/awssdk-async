@@ -99,12 +99,8 @@ namespace Amazon.Util
             Uri endpoint = new Uri(serviceUrl);
 
             data.Append(endpoint.Host);
-            data.Append("\n");
-            string uri = endpoint.AbsolutePath;
-            if (uri == null || uri.Length == 0)
-            {
-                uri = "/";
-            }
+            data.Append('\n');
+            string uri = string.IsNullOrEmpty(endpoint.AbsolutePath) ? endpoint.AbsolutePath : "/";
 
             data.Append(AWSSDKUtils.UrlEncode(uri, true));
             data.Append("\n");

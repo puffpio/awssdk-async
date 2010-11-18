@@ -1719,7 +1719,8 @@
     <Content Include="Amazon.S3\Model\InitiateMultipartUploadResponse.xslt" />
     <Content Include="Amazon.S3\Model\ListMultipartUploadsResponse.xslt" />
     <Content Include="Amazon.S3\Model\ListPartsResponse.xslt" />
-    <Content Include="ThirdParty\Newtonsoft.Json.Net20.dll" />
+    <Content Include="ThirdParty\AsyncCtpLibrary.dll" />
+    <Content Include="ThirdParty\Newtonsoft.Json.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
