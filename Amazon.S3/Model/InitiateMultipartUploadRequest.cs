@@ -259,7 +259,7 @@ namespace Amazon.S3.Model
         /// <param name="key">The key to remove</param>
         public void RemoveMetaData(string key)
         {
-            if (metaData == null || metaData.Count == 0)
+            if (string.IsNullOrEmpty(key))
             {
                 return;
             }

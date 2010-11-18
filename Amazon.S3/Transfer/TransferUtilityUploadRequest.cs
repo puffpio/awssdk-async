@@ -307,7 +307,7 @@ namespace Amazon.S3.Transfer
         /// </param>
         public void RemoveMetadata(string key)
         {
-            if (metadata == null || metadata.Count == 0)
+            if (string.IsNullOrEmpty(key))
             {
                 return;
             }
