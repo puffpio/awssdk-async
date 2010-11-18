@@ -103,15 +103,15 @@ namespace Amazon.Util
             string uri = string.IsNullOrEmpty(endpoint.AbsolutePath) ? endpoint.AbsolutePath : "/";
 
             data.Append(AWSSDKUtils.UrlEncode(uri, true));
-            data.Append("\n");
+            data.Append('\n');
             foreach (KeyValuePair<string, string> pair in sorted)
             {
                 if (pair.Value != null)
                 {
                     data.Append(AWSSDKUtils.UrlEncode(pair.Key, false));
-                    data.Append("=");
+                    data.Append('=');
                     data.Append(AWSSDKUtils.UrlEncode(pair.Value, false));
-                    data.Append("&");
+                    data.Append('&');
                 }
             }
 
@@ -360,7 +360,7 @@ namespace Amazon.Util
                 }
                 else
                 {
-                    encoded.Append("%").Append(String.Format("{0:X2}", (int)symbol));
+                    encoded.Append('%').Append(String.Format("{0:X2}", (int)symbol));
                 }
             }
 
