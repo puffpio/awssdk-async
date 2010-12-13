@@ -650,39 +650,49 @@ namespace Amazon.SimpleDB
         /*
          *  Transforms response based on xslt template
          */
+        private static Dictionary<Type, XslCompiledTransform> _xslTransformCache = new Dictionary<Type, XslCompiledTransform>();
+
         private static string Transform(string responseBody, string action, Type t)
         {
-            XslCompiledTransform transformer = new XslCompiledTransform();
+            XslCompiledTransform transformer;
 
-            // Build the name of the xslt transform to apply to the response
-            char[] seps = { ',' };
-
-            Assembly assembly = Assembly.GetAssembly(t);
-            string assemblyName = assembly.FullName;
-            assemblyName = assemblyName.Split(seps)[0];
-
-            string ns = t.Namespace;
-            string resourceName = String.Concat(
-                assemblyName,
-                ".",
-                ns,
-                ".Model.",
-                "ResponseTransformer.xslt"
-                );
-
-            using (XmlTextReader xmlReader = new XmlTextReader(assembly.GetManifestResourceStream(resourceName)))
+            // only load the transformer once and cache it
+            if (_xslTransformCache.ContainsKey(t))
             {
-                transformer.Load(xmlReader);
+                transformer = _xslTransformCache[t];
+            }
+            else
+            {
+                transformer = new XslCompiledTransform();
 
-                StringBuilder sb = new StringBuilder(1024);
-                using (XmlTextReader xmlR = new XmlTextReader(new StringReader(responseBody)))
+                // Build the name of the xslt transform to apply to the response
+                char[] seps = { ',' };
+
+                Assembly assembly = Assembly.GetAssembly(t);
+                string assemblyName = assembly.FullName;
+                assemblyName = assemblyName.Split(seps)[0];
+
+                string ns = t.Namespace;
+                string resourceName = String.Concat(
+                    assemblyName,
+                    ".",
+                    ns,
+                    ".Model.",
+                    "ResponseTransformer.xslt"
+                    );
+
+                using (XmlTextReader xmlReader = new XmlTextReader(assembly.GetManifestResourceStream(resourceName)))
                 {
-                    using (StringWriter sw = new StringWriter(sb))
-                    {
-                        transformer.Transform(xmlR, null, sw);
-                        return sb.ToString();
-                    }
+                    transformer.Load(xmlReader);
                 }
+            }
+
+            StringBuilder sb = new StringBuilder(1024);
+            using (XmlTextReader xmlR = new XmlTextReader(new StringReader(responseBody)))
+            using (StringWriter sw = new StringWriter(sb))
+            {
+                transformer.Transform(xmlR, null, sw);
+                return sb.ToString();
             }
         }
 
